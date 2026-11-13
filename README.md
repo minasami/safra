@@ -4,6 +4,8 @@ Safra is a bilingual Arabic–English web app that resurrects the paper Yellow C
 
 This project is being prepared as a [Kiroween 2026](https://kiroween.devpost.com/) entry in the **Resurrection** category. It is a new standalone project. It is not a fork of Medicine Support Hub.
 
+**Live demo:** https://safra-eosin.vercel.app
+
 **This tool is informational only. It is not a diagnosis, not medical advice, and not an official report.** Safra does not send data to any authority. If you choose to report, use the official Egyptian Pharmaceutical Vigilance Center (EPVC) e-reporting form.
 
 ## Official reporting (verified 14 November 2026, Africa/Cairo)
