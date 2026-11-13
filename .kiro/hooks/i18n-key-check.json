@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "i18n-key-check",
+      "description": "When locale message files change, verify that English and Arabic keys stay in sync.",
+      "trigger": "PostFileSave",
+      "matcher": "src/i18n/.*\\.(ts|tsx)$",
+      "timeout": 60,
+      "enabled": true,
+      "action": {
+        "type": "command",
+        "command": "npm run check:i18n"
+      }
+    }
+  ]
+}

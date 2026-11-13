@@ -1,0 +1,414 @@
+/* Resurrected Yellow Card — archival blotter and paper, not a costume. */
+
+:root {
+  --blotter: #1c2a22;
+  --blotter-deep: #121a16;
+  --ink: #1a140c;
+  --ink-soft: #3a3226;
+  --rule: #7c1d1d;
+  --stamp: #9b1c1c;
+  --paper: #f6e48a;
+  --paper-deep: #edd36a;
+  --paper-edge: #c9a227;
+  --cream: #f4ecd4;
+  --error: #8a1515;
+  --focus: #2c4a3a;
+  --latin: "Libre Baskerville", "Palatino Linotype", Palatino, serif;
+  --arabic-serif: "Noto Naskh Arabic", "Amiri", serif;
+  --sans: "IBM Plex Sans", "IBM Plex Sans Arabic", "Segoe UI", sans-serif;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: var(--sans);
+  color: var(--cream);
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #2a3d32 0%, transparent 55%),
+    repeating-linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.015) 0 1px,
+      transparent 1px 7px
+    ),
+    var(--blotter);
+  line-height: 1.55;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.page {
+  width: min(840px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 3.5rem;
+}
+
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.brand-kicker {
+  margin: 0 0 0.35rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  color: #d7c48a;
+}
+
+.brand h1 {
+  margin: 0;
+  font-family: var(--latin);
+  font-size: clamp(2.2rem, 6vw, 3.3rem);
+  font-weight: 700;
+  color: var(--paper);
+  letter-spacing: 0.04em;
+}
+
+[dir="rtl"] .brand h1 {
+  font-family: var(--arabic-serif);
+  letter-spacing: 0;
+}
+
+.tagline {
+  margin: 0.4rem 0 0;
+  max-width: 28rem;
+  color: #d8d0c2;
+  font-size: 0.98rem;
+}
+
+.lang-toggle {
+  display: flex;
+  border: 1px solid #d7c48a;
+  border-radius: 999px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.lang-btn {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  color: var(--cream);
+  font: inherit;
+  padding: 0.4rem 0.85rem;
+  cursor: pointer;
+}
+
+.lang-btn.is-active {
+  background: var(--paper);
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.disclaimer {
+  background: rgba(10, 14, 12, 0.45);
+  border: 1px solid rgba(215, 196, 138, 0.35);
+  padding: 0.9rem 1rem;
+  margin-bottom: 1.4rem;
+  font-size: 0.92rem;
+  color: #eee6d8;
+}
+
+.disclaimer p {
+  margin: 0;
+}
+
+.disclaimer-links {
+  margin-top: 0.7rem !important;
+}
+
+.disclaimer a,
+.how-to a,
+.print-foot a {
+  color: #f3d56a;
+}
+
+.card {
+  background:
+    radial-gradient(circle at 20% 10%, rgba(255, 255, 255, 0.18), transparent 28%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(90, 50, 10, 0.04) 0 1px,
+      transparent 1px 3px
+    ),
+    linear-gradient(180deg, var(--paper) 0%, var(--paper-deep) 100%);
+  color: var(--ink);
+  border: 3px double var(--rule);
+  outline: 1px solid var(--paper-edge);
+  outline-offset: 6px;
+  padding: 1.5rem 1.4rem 1.7rem;
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.28);
+}
+
+.identifier-notice,
+.hint,
+.preview-intro,
+.fine-print,
+.save-confirm {
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.identifier-notice {
+  margin: 0 0 1.1rem;
+}
+
+.card-form fieldset {
+  border: 0;
+  border-top: 1px solid rgba(124, 29, 29, 0.28);
+  margin: 0 0 1.1rem;
+  padding: 0.85rem 0 0;
+}
+
+.card-form legend {
+  font-family: var(--latin);
+  font-weight: 700;
+  padding: 0 0 0.4rem;
+  color: var(--rule);
+}
+
+[dir="rtl"] .card-form legend,
+[dir="rtl"] .how-to h2,
+[dir="rtl"] .print-head h2 .arabic {
+  font-family: var(--arabic-serif);
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin: 0 0 0.8rem;
+}
+
+.field-label {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  color: var(--ink);
+  background: rgba(255, 250, 230, 0.7);
+  border: 1px solid rgba(26, 20, 12, 0.25);
+  border-radius: 2px;
+  padding: 0.45rem 0.55rem;
+  width: 100%;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.lang-btn:focus-visible,
+.btn:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+.field-error {
+  color: var(--error);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0 0 0.85rem;
+  font-size: 0.92rem;
+}
+
+.how-to {
+  border-top: 1px solid rgba(124, 29, 29, 0.28);
+  padding-top: 0.85rem;
+}
+
+.how-to h2 {
+  margin: 0 0 0.4rem;
+  font-family: var(--latin);
+  font-size: 1.1rem;
+  color: var(--rule);
+}
+
+.how-to p {
+  margin: 0 0 0.5rem;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin-top: 1rem;
+}
+
+.btn {
+  appearance: none;
+  font: inherit;
+  font-weight: 600;
+  border-radius: 2px;
+  padding: 0.5rem 0.9rem;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: var(--rule);
+  color: #f8efd4;
+  border: 1px solid var(--rule);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid rgba(26, 20, 12, 0.35);
+}
+
+.save-confirm {
+  margin: 0.7rem 0 0;
+}
+
+.site-foot {
+  margin-top: 1.4rem;
+  font-size: 0.82rem;
+  color: #c9c0b0;
+  text-align: center;
+}
+
+.print-head {
+  text-align: center;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--rule);
+  padding-bottom: 0.8rem;
+}
+
+.stamp {
+  margin: 0;
+  color: var(--stamp);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+}
+
+.stamp-ar {
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: var(--arabic-serif);
+  margin-top: 0.15rem;
+}
+
+.print-head h2 {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0.6rem 0 0;
+  font-size: 1.45rem;
+  font-family: var(--latin);
+  color: var(--ink);
+}
+
+.print-head h2 .arabic {
+  font-family: var(--arabic-serif);
+  font-size: 1.35rem;
+}
+
+.print-lines {
+  margin: 0;
+}
+
+.print-line {
+  display: grid;
+  grid-template-columns: minmax(9rem, 32%) 1fr;
+  gap: 0.75rem;
+  padding: 0.55rem 0;
+  border-bottom: 1px dotted rgba(26, 20, 12, 0.28);
+}
+
+.print-line dt,
+.print-line dd {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.print-line dt {
+  font-weight: 600;
+  color: var(--rule);
+}
+
+.print-line .arabic {
+  font-family: var(--arabic-serif);
+  font-size: 0.95em;
+}
+
+.print-foot {
+  margin-top: 1rem;
+  font-size: 0.86rem;
+  color: var(--ink-soft);
+}
+
+.print-foot p {
+  margin: 0 0 0.45rem;
+}
+
+@media (max-width: 640px) {
+  .masthead {
+    flex-direction: column;
+  }
+
+  .print-line {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+}
+
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print,
+  .masthead,
+  .disclaimer,
+  .site-foot {
+    display: none !important;
+  }
+
+  .page {
+    width: auto;
+    margin: 0;
+    padding: 0;
+  }
+
+  .card {
+    box-shadow: none;
+    outline: none;
+    border-color: var(--rule);
+    background: #fff8d6;
+    padding: 0;
+  }
+
+  .print-card {
+    break-inside: avoid;
+  }
+}

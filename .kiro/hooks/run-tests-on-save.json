@@ -1,0 +1,17 @@
+{
+  "version": "v1",
+  "hooks": [
+    {
+      "name": "run-tests-on-save",
+      "description": "Run the Vitest suite after the agent saves TypeScript source, so validation and report-generation tests stay green.",
+      "trigger": "PostFileSave",
+      "matcher": "src/.*\\.(ts|tsx)$",
+      "timeout": 120,
+      "enabled": true,
+      "action": {
+        "type": "command",
+        "command": "npm test"
+      }
+    }
+  ]
+}
